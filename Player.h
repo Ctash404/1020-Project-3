@@ -5,12 +5,16 @@
 #ifndef PLAYER_H_
 #define PLAYER_H_
 
-class Player : public Deck, public Hand
+#include "Hand.h"
+
+class Player
 {
     public:
         Hand hand;
+        int score {0};
+
         Player() = default;
-        Player(Deck deck, int N) {}
+        Player(Deck &deck, int N) : hand(deck, N) {}
 };
   
 

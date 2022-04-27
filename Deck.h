@@ -7,13 +7,13 @@
 #include <cstdlib>
 #include <ctime>
 
-class Deck : public Card
+class Deck
 {
     private:
-        std::vector<Card*> deck;
+        std::vector<Card> deck;
 
     public:
-        Deck() = default;
+        Deck();
         void shuffle();
         Card drawCard();
         int getDeckSize();

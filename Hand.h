@@ -7,13 +7,13 @@
 #include <string>
 #include <sstream>
 
-class Hand : public Card, public Deck
+class Hand
 {
     private:
-        std::vector<Card*> hand;
+        std::vector<Card> hand;
     public:
         Hand() = default;
-        Hand(Deck deck, int N) {}
+        Hand(Deck &deck, int N);
         std::string printHand();
         Card dealCard(int num);
         int getHandSize();
