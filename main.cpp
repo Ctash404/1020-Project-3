@@ -1,3 +1,7 @@
+// Conner Tash
+// Program for a user to play a game a game of cards by selecting a orange or purple one
+// with orange counting double. Then compares the value to a computer value to which is higher
+// and add those values to an over all total.
 #include "Card.h"
 #include "Deck.h"
 #include "Hand.h"
@@ -7,32 +11,32 @@ using namespace std;
 
 int main() {
 
-  int rounds {0}, intChoice {0}; //computer's "input" for card choice
-    Card humChoice, compChoice;
+  int roundsPlayed {0}, intChoice {0};
+  Card humChoice, compChoice;
 
     cout << "Welcome to TigerGame!" << endl;
 
   // 1. Create a deck of cards and shuffle it.
-    Deck deckOfCards;
-    deckOfCards.shuffle();
+    Deck cardDeck;
+    cardDeck.shuffle();
 
-  // EC #1
+  // Extra Credit #1
     cout << "How many rounds would you like to play? ";
-    cin >> rounds;
-    while(rounds > 10 || rounds < 1)
+    cin >> roundsPlayed;
+    while(roundsPlayed > 10 || roundsPlayed < 1)
     {
         cout << "Please enter a number less than 10: ";
-        cin >> rounds;
+        cin >> roundsPlayed;
     }
   
   // 2. Create two players, each one with 5 cards in their hand.
-    Player Human(deckOfCards, rounds);
-    Player Computer(deckOfCards, rounds);
+    Player Human(cardDeck, roundsPlayed);
+    Player Computer(cardDeck, roundsPlayed);
 
-    cout << "The deck was shuffled and each player has drawn " << rounds << " cards." << endl;
+    cout << "The deck was shuffled and each player has drawn " << roundsPlayed << " cards." << endl;
 
   // 3. Play five rounds. In each round:
-    for(int r = 0; r < rounds; r++)
+    for(int r = 0; r < roundsPlayed; r++)
     {
         cout << "\n\nRound " << r + 1 << "\n-------\n";
 
@@ -44,7 +48,7 @@ int main() {
         cout << "Your hand: " << Human.hand.printHand() << endl;
         cout << "Which card do you want to play? ";
         cin >> intChoice;
-        while((intChoice < 0) || (intChoice > rounds - r))
+        while((intChoice < 0) || (intChoice > roundsPlayed - r))
         {
             cout << "You do not have this card. Enter a valid choice: ";
             cin >> intChoice;
@@ -77,11 +81,11 @@ int main() {
 
     }
 
+
   // 4. Print final game results.  
     cout << "\n\nFINAL SCORE:\n";
     cout << "Human: " << Human.score << endl;
     cout << "Computer: " << Computer.score << endl;
-      
   
   return 0;
 }

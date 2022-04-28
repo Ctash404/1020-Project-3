@@ -12,15 +12,15 @@ Hand::Hand(Deck &deck, int N)
 // Use a stirng stream to return the combined output of the hand
 std::string Hand::printHand()
 {
-    std::stringstream handReturn;
+    std::stringstream ss;
 
     // Iterate through the vector to place into the stream
     for(unsigned int i = 0; i < hand.size(); i++)
     {
-        handReturn << " [" << i + 1 << "] " << hand.at(i).printCard();
+        ss << " [" << i + 1 << "] " << hand.at(i).printCard();
     }
 
-    return handReturn.str();
+    return ss.str();
 }
 
 // Lets the player choose a card and play it removing it 
