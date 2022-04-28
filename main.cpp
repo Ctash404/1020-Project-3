@@ -48,6 +48,8 @@ int main() {
         cout << "Your hand: " << Human.hand.printHand() << endl;
         cout << "Which card do you want to play? ";
         cin >> intChoice;
+
+        // Validation to make sure they put a card the player has
         while((intChoice < 0) || (intChoice > roundsPlayed - r))
         {
             cout << "You do not have this card. Enter a valid choice: ";
