@@ -21,7 +21,7 @@ int main() {
     cardDeck.shuffle();
 
   // Extra Credit #1
-    cout << "How many rounds would you like to play? ";
+    cout << "Enter the amount of rounds you want to play: ";
     cin >> roundsPlayed;
     while(roundsPlayed > 10 || roundsPlayed < 1)
     {
